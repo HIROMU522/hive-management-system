@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/utils/supabase/client';
 
+import Link from 'next/link';
+
 export default function DashboardPage() {
   const router = useRouter();
   const [profile, setProfile] = useState<any>(null);
@@ -47,18 +49,66 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="p-10">
-      <h1 className="text-3xl font-bold">HIVE管理システム ダッシュボード</h1>
-      <div className="mt-4">
-        <p><strong>ユーザーID:</strong> {profile.user_id}</p>
-        <p><strong>メールアドレス:</strong> {profile.email}</p>
-      </div>
-      <button 
-        className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
-        onClick={handleLogout}
-      >
-        ログアウト
-      </button>
+    <div className="flex min-h-screen bg-gray-50">
+      {/* サイドバー */}
+      <aside className="w-64 bg-gray-700 text-white">
+  <div className="p-4 text-2xl font-bold bg-amber-400 text-gray-900">
+    🐝 HIVE
+  </div>
+  <nav className="mt-4">
+    <ul>
+      <li className="p-3 hover:bg-gray-600 cursor-pointer">
+        <Link href="/dashboard">ダッシュボード</Link>
+      </li>
+      <li className="p-3 hover:bg-gray-600 cursor-pointer">
+        <Link href="/tasks">タスク管理</Link>
+      </li>
+      <li className="p-3 hover:bg-gray-600 cursor-pointer">
+        <Link href="/revenue">収益管理</Link>
+      </li>
+      <li className="p-3 hover:bg-gray-600 cursor-pointer">
+        <Link href="/resources">共通リソース</Link>
+      </li>
+      <li className="mt-4 p-3 font-semibold">事業別管理</li>
+      <li className="p-3 hover:bg-gray-600 cursor-pointer">
+        <Link href="/departments/pulse">Pulse 部門</Link>
+      </li>
+      <li className="p-3 hover:bg-gray-600 cursor-pointer">
+        <Link href="/departments/growth">Growth 部門</Link>
+      </li>
+      <li className="p-3 hover:bg-gray-600 cursor-pointer">
+        <Link href="/departments/tech">Tech 部門</Link>
+      </li>
+      <li className="p-3 hover:bg-gray-600 cursor-pointer">
+        <Link href="/departments/asset">Asset 部門</Link>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+      {/* メインコンテンツ */}
+      <main className="flex-1 p-10">
+        <header className="flex justify-between items-center">
+          <h1 className="text-3xl font-bold">ダッシュボード</h1>
+          <div className="flex items-center gap-4">
+            <span>{profile.user_id}</span>
+            <button 
+              className="bg-gray-700 text-white px-4 py-2 rounded"
+              onClick={handleLogout}
+            >
+              ログアウト
+            </button>
+          </div>
+        </header>
+
+        <section className="mt-8 grid grid-cols-2 gap-6">
+          {/* KPIカードの例 */}
+          <div className="bg-white shadow p-6 rounded">主要KPI</div>
+          <div className="bg-white shadow p-6 rounded">収益グラフ</div>
+          <div className="bg-white shadow p-6 rounded">タスク一覧</div>
+          <div className="bg-white shadow p-6 rounded">通知・アラート</div>
+        </section>
+      </main>
     </div>
   );
 }
