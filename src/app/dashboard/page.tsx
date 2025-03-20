@@ -52,39 +52,18 @@ export default function DashboardPage() {
     <div className="flex min-h-screen bg-gray-50">
       {/* サイドバー */}
       <aside className="w-64 bg-gray-700 text-white">
-  <div className="p-4 text-2xl font-bold bg-amber-400 text-gray-900">
-    🐝 HIVE
-  </div>
-  <nav className="mt-4">
-    <ul>
-      <li className="p-3 hover:bg-gray-600 cursor-pointer">
-        <Link href="/dashboard">ダッシュボード</Link>
-      </li>
-      <li className="p-3 hover:bg-gray-600 cursor-pointer">
-        <Link href="/tasks">タスク管理</Link>
-      </li>
-      <li className="p-3 hover:bg-gray-600 cursor-pointer">
-        <Link href="/revenue">収益管理</Link>
-      </li>
-      <li className="p-3 hover:bg-gray-600 cursor-pointer">
-        <Link href="/resources">共通リソース</Link>
-      </li>
-      <li className="mt-4 p-3 font-semibold">事業別管理</li>
-      <li className="p-3 hover:bg-gray-600 cursor-pointer">
-        <Link href="/departments/pulse">Pulse 部門</Link>
-      </li>
-      <li className="p-3 hover:bg-gray-600 cursor-pointer">
-        <Link href="/departments/growth">Growth 部門</Link>
-      </li>
-      <li className="p-3 hover:bg-gray-600 cursor-pointer">
-        <Link href="/departments/tech">Tech 部門</Link>
-      </li>
-      <li className="p-3 hover:bg-gray-600 cursor-pointer">
-        <Link href="/departments/asset">Asset 部門</Link>
-      </li>
-    </ul>
-  </nav>
-</aside>
+        <div className="p-4 text-2xl font-bold bg-amber-400 text-gray-900">
+          🐝 HIVE
+        </div>
+        <nav className="mt-4">
+          <ul>
+            <li className="p-3 hover:bg-gray-600 cursor-pointer">ダッシュボード</li>
+            <li className="p-3 hover:bg-gray-600 cursor-pointer">タスク管理</li>
+            <li className="p-3 hover:bg-gray-600 cursor-pointer">収益管理</li>
+            <li className="p-3 hover:bg-gray-600 cursor-pointer">インテリジェンス</li>
+          </ul>
+        </nav>
+      </aside>
 
       {/* メインコンテンツ */}
       <main className="flex-1 p-10">
