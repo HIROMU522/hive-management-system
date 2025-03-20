@@ -1,11 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { supabase } from '@/utils/supabase/client';
 
 export default function AuthPage() {
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
 
   const handleLogin = async () => {
     // SupabaseのusersテーブルからuserIdに紐づくemailを取得する
@@ -27,6 +29,7 @@ export default function AuthPage() {
       alert(`ログインエラー: ${loginError.message}`);
     } else {
       alert('ログイン成功！');
+      router.push('/dashboard'); // ←ここを追加（ダッシュボードへ遷移）
     }
   };
 
