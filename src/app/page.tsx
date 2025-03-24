@@ -22,6 +22,7 @@ export default function DashboardPage() {
       const { data: { session } } = await supabase.auth.getSession();
 
       if (!session) {
+        // 未認証の場合は /auth にリダイレクト
         router.push('/auth');
         return;
       }
@@ -89,7 +90,7 @@ export default function DashboardPage() {
   return (
     <div className="flex min-h-screen bg-gray-50">
       {/* サイドバー */}
-      <Sidebar currentPath="/dashboard" />
+      <Sidebar currentPath="/" />
 
       {/* メインコンテンツエリア */}
       <div className="flex-1 flex flex-col">

@@ -29,7 +29,7 @@ export default function AuthPage() {
       alert(`ログインエラー: ${loginError.message}`);
     } else {
       alert('ログイン成功！');
-      router.push('/dashboard'); // ←ここを追加（ダッシュボードへ遷移）
+      router.push('/'); // メインページ(ルート)に遷移するよう変更
     }
   };
 

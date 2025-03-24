@@ -48,7 +48,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPath }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const menuItems = [
-    { name: 'ダッシュボード', path: '/dashboard', icon: <DashboardIcon /> },
+    { name: 'ダッシュボード', path: '/', icon: <DashboardIcon /> }, // パスを /dashboard から / に変更
     { name: 'タスク管理', path: '/tasks', icon: <TaskIcon /> },
     { name: '収益管理', path: '/revenue', icon: <RevenueIcon /> },
     { name: 'インテリジェンス', path: '/intelligence', icon: <IntelligenceIcon /> },
